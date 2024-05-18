@@ -1,4 +1,3 @@
-# As many checks as reasonable
 If:
     PathExclude: build/.*
 CompileFlags:
@@ -8,5 +7,7 @@ Diagnostics:
         Add: '*'
         Remove:
             - 'llvmlibc-restrict-system-libc-headers'
-    UnusedIncludes: Strict
+            - 'altera-unroll-loops'
+            - 'readability-identifier-length'
     MissingIncludes: Strict
+    UnusedIncludes: Strict

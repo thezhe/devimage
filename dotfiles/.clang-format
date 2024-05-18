@@ -1,40 +1,14 @@
-# Tabs are 4 spaces. LF. Allman. No empty lines except for EOF.
 Language: Cpp
-BasedOnStyle: LLVM
-IntegerLiteralSeparator:
-    Binary: 4
-    DecimalMinDigits: 6
-    Decimal: 3
-    HexMinDigits: 5
-    Hex: 2
-AccessModifierOffset: -4
-AlignArrayOfStructures: Left
-AllowAllArgumentsOnNextLine: false
-AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortFunctionsOnASingleLine: Empty
-BinPackArguments: false
-BinPackParameters: false
-BreakArrays: false
-BreakBeforeBinaryOperators: All
-BreakBeforeBraces: Allman
+BasedOnStyle: Microsoft
+# LF. No empty lines except for EOF.
 ColumnLimit: 80
 DeriveLineEnding: false
-EmptyLineAfterAccessModifier: Never
-EmptyLineBeforeAccessModifier: Never
-IncludeBlocks: Merge
-IncludeCategories: []
 IndentPPDirectives: BeforeHash
-IndentWidth: 4
 InsertBraces: true
 InsertNewlineAtEOF: true
-KeepEmptyLinesAtTheStartOfBlocks: false
 LineEnding: LF
 MaxEmptyLinesToKeep: 0
 PointerAlignment: Left
-PPIndentWidth: -4
-QualifierAlignment: Left
-SeparateDefinitionBlocks: Always
-SpaceAroundPointerQualifiers: Before
-SpacesInContainerLiterals: false
-TabWidth: 4
 UseCRLF: false
+# TODO lines before '#'
+# TODO pragma once warning
