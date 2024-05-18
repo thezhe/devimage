@@ -1,4 +1,4 @@
-# As many checks as possible
+# As many checks as reasonable
 If:
     PathExclude: build/.*
 CompileFlags:
@@ -6,61 +6,7 @@ CompileFlags:
 Diagnostics:
     ClangTidy:
         Add: '*'
-        # Remove rules covered by other linters and/or CompileFlags
         Remove:
-            - 'altera-unroll-loops'
-            - 'fuchsia-default-arguments-calls'
-            - 'fuchsia-overloaded-operator'
-            - 'fuchsia-trailing-return'
-            - 'llvmlibc*'
-            - 'misc-unused-parameters'
-            - 'modernize-use-trailing-return-type'
-            - 'readability-identifier-length'
-        # Types are CamelCase. Parameters, members, and methods are camelBack. Everything else is lower_case.
-        CheckOptions:
-            readability-function-cognitive-complexity.Threshold: 15
-            readability-identifier-naming.AbstractClassCase: CamelCase
-            readability-identifier-naming.ClassCase: CamelCase
-            readability-identifier-naming.ClassConstantCase: camelBack
-            readability-identifier-naming.ClassMemberCase: camelBack
-            readability-identifier-naming.ClassMethodCase: camelBack
-            readability-identifier-naming.ConceptCase: lower_case
-            readability-identifier-naming.ConstantCase: lower_case
-            readability-identifier-naming.ConstantMemberCase: camelBack
-            readability-identifier-naming.ConstantParameterCase: camelBack
-            readability-identifier-naming.ConstantPointerParameterCase: camelBack
-            readability-identifier-naming.ConstexprFunctionCase: lower_case
-            readability-identifier-naming.ConstexprMethodCase: camelBack
-            readability-identifier-naming.ConstexprVariableCase: lower_case
-            readability-identifier-naming.EnumCase: CamelCase
-            readability-identifier-naming.EnumConstantCase: camelBack
-            readability-identifier-naming.FunctionCase: lower_case
-            readability-identifier-naming.LocalConstantCase: lower_case
-            readability-identifier-naming.LocalConstantPointerCase: lower_case
-            readability-identifier-naming.LocalPointerCase: lower_case
-            readability-identifier-naming.LocalVariableCase: lower_case
-            readability-identifier-naming.MemberCase: camelBack
-            readability-identifier-naming.MethodCase: camelBack
-            readability-identifier-naming.NamespaceCase: lower_case
-            readability-identifier-naming.ParameterCase: camelBack
-            readability-identifier-naming.ParameterPackCase: camelBack
-            readability-identifier-naming.PointerParameterCase: camelBack
-            readability-identifier-naming.PrivateMemberCase: camelBack
-            readability-identifier-naming.PrivateMethodCase: camelBack
-            readability-identifier-naming.ProtectedMemberCase: camelBack
-            readability-identifier-naming.ProtectedMethodCase: camelBack
-            readability-identifier-naming.PublicMemberCase: camelBack
-            readability-identifier-naming.PublicMethodCase: camelBack
-            readability-identifier-naming.ScopedEnumConstantCase: camelBack
-            readability-identifier-naming.StaticConstantCase: lower_case
-            readability-identifier-naming.StaticVariableCase: lower_case
-            readability-identifier-naming.StructCase: CamelCase
-            readability-identifier-naming.TemplateParameterCase: CamelCase
-            readability-identifier-naming.TemplateTemplateParameterCase: CamelCase
-            readability-identifier-naming.TypeAliasCase: lower_case
-            readability-identifier-naming.TypeTemplateParameterCase: CamelCase
-            readability-identifier-naming.ValueTemplateParameterCase: camelBack
-            readability-identifier-naming.VariableCase: lower_case
-            readability-identifier-naming.VirtualMethodCase: camelBack
+            - 'llvmlibc-restrict-system-libc-headers'
     UnusedIncludes: Strict
     MissingIncludes: Strict
