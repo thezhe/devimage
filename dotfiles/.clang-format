@@ -1,0 +1,48 @@
+# Tabs are 4 spaces. LF. Allman. No empty lines except for EOF.
+Language: Cpp
+BasedOnStyle: LLVM
+IntegerLiteralSeparator:
+    Binary: 4
+    DecimalMinDigits: 6
+    Decimal: 3
+    HexMinDigits: 5
+    Hex: 2
+AccessModifierOffset: -4
+AlignArrayOfStructures: Left
+AllowAllArgumentsOnNextLine: false
+AllowAllConstructorInitializersOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+BreakArrays: false
+BreakBeforeBinaryOperators: All
+BreakBeforeBraces: Allman
+BreakBeforeConceptDeclarations: Always
+ColumnLimit: 80
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+Cpp11BracedListStyle: false
+DeriveLineEnding: false
+EmptyLineAfterAccessModifier: Never
+EmptyLineBeforeAccessModifier: Never
+IncludeBlocks: Merge
+IncludeCategories: []
+IndentPPDirectives: BeforeHash
+IndentWidth: 4
+InsertBraces: true
+InsertNewlineAtEOF: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+LineEnding: LF
+MaxEmptyLinesToKeep: 0
+PackConstructorInitializers: CurrentLine
+PointerAlignment: Left
+PPIndentWidth: -4
+QualifierAlignment: Left
+RequiresClausePosition: OwnLine
+SeparateDefinitionBlocks: Always
+SpaceAfterTemplateKeyword: false
+SpaceAroundPointerQualifiers: Before
+SpacesInContainerLiterals: false
+TabWidth: 4
+UseCRLF: false

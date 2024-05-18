@@ -1,0 +1,26 @@
+name: main
+on:
+  schedule:
+    - cron: '0 0 * * 0' # weekly
+  push:
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push Dev Container task
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: ghcr.io/${{ github.repository }}
+          imageTag: ${{ github.ref_name }}
+          noCache: true
+          push: always

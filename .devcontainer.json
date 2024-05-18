@@ -1,0 +1,113 @@
+{
+    "dockerFile": "Dockerfile",
+    "capAdd": [
+        // Required for "vadimcn.vscode-lldb"
+        "SYS_PTRACE"
+    ],
+    "containerEnv": {
+        // Required for "josetr.cmake-language-support-vscode" without libicu
+        "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT": "1"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "brobeson.vscode-cmake-lint",
+                "cheshirekow.cmake-format",
+                "cschlosser.doxdocgen",
+                "DavidAnson.vscode-markdownlint",
+                "github.vscode-github-actions",
+                "Gruntfuggly.todo-tree",
+                "jbenden.c-cpp-flylint",
+                "josetr.cmake-language-support-vscode",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "ms-vscode.cmake-tools",
+                "SonarSource.sonarlint-vscode",
+                "streetsidesoftware.code-spell-checker",
+                "tdennis4496.cmantic",
+                "vadimcn.vscode-lldb"
+            ],
+            "settings": {
+                "C_mantic.headerGuard.style": "Add #pragma once",
+                "c-cpp-flylint.clang.enable": false,
+                "c-cpp-flylint.cppcheck.inconclusive": true,
+                "c-cpp-flylint.flawfinder.enable": false,
+                "c-cpp-flylint.flexelint.enable": false,
+                "c-cpp-flylint.lizard.enable": false,
+                "c-cpp-flylint.pclintplus.enable": false,
+                // Hide build folder from linters (e.g., "brobeson.vscode-cmake-lint")
+                "cmake.buildDirectory": "${workspaceFolder}/../build",
+                "cmake.copyCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+                "cmake.generator": "Ninja",
+                "cmake.installPrefix": "${workspaceFolder}/build/install",
+                "cmake.languageSupport.enableFileAPI": true,
+                "dotnetAcquisitionExtension.enableTelemetry": false,
+                "editor.detectIndentation": false,
+                "editor.formatOnSave": true,
+                "editor.inlayHints.enabled": "off",
+                "editor.insertSpaces": true,
+                "editor.minimap.enabled": false,
+                "editor.tabSize": 4,
+                "files.encoding": "utf8",
+                "files.eol": "\n",
+                "files.insertFinalNewline": true,
+                "files.trimFinalNewlines": true,
+                "files.trimTrailingWhitespace": true,
+                "git.autofetch": true,
+                "git.confirmSync": false,
+                "git.enableSmartCommit": true,
+                "git.fetchOnPull": true,
+                "git.followTagsWhenSync": true,
+                "git.pullBeforeCheckout": true,
+                "lldb.showDisassembly": "never",
+                "sonarlint.disableTelemetry": true,
+                "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+                "[cmake]": {
+                    "editor.defaultFormatter": "cheshirekow.cmake-format"
+                },
+                "c-cpp-flylint.cppcheck.extraArgs": [
+                    "--enable=all"
+                ],
+                "c-cpp-flylint.language": "c",
+                "c-cpp-flylint.standard": [
+                    "c11"
+                ],
+                "clangd.arguments": [
+                    "--header-insertion=never"
+                ],
+                "launch": {
+                    "version": "0.2.0",
+                    "configurations": [
+                        {
+                            "type": "lldb",
+                            "request": "launch",
+                            "name": "CMake: Debug Launch Target",
+                            "program": "${command:cmake.launchTargetPath}",
+                            "cwd": "${command:cmake.launchTargetDirectory}",
+                            "initCommands": [
+                                "settings set target.disable-aslr false"
+                            ]
+                        },
+                        {
+                            "type": "cmake",
+                            "request": "launch",
+                            "name": "CMake: Debug Configuration",
+                            "cmakeDebugType": "configure",
+                            "clean": false,
+                            "configureAll": false
+                        },
+                        {
+                            "type": "cmake",
+                            "request": "launch",
+                            "name": "CMake: Debug Script",
+                            "cmakeDebugType": "script",
+                            "scriptPath": "${file}"
+                        }
+                    ]
+                },
+                "markdownlint.config": {
+                    "no-duplicate-heading": false
+                }
+            }
+        }
+    }
+}
