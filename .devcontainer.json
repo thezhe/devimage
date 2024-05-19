@@ -41,6 +41,7 @@
                 "cmake.generator": "Ninja",
                 "cmake.installPrefix": "${workspaceFolder}/build/install",
                 "cmake.languageSupport.enableFileAPI": true,
+                "cpplint.cpplintPath": "/usr/bin/cpplint",
                 "dotnetAcquisitionExtension.enableTelemetry": false,
                 "editor.detectIndentation": false,
                 "editor.formatOnSave": true,
