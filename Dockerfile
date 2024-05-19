@@ -1,19 +1,11 @@
-FROM ubuntu:22.04 AS base
-# hadolint ignore=DL3008,DL3009,DL3013
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y build-essential curl file git procps python3-pip && \
-    rm -rf /var/lib/apt/lists && \
+FROM ubuntu:noble
+# hadolint ignore=DL3008,DL3013,DL3015
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    apt-get install -y gcc && \
+    apt-get install --no-install-recommends -y cppcheck cpplint curl git ninja-build python3-pip python3-yaml && \
     apt-get autoremove -y --purge && \
-    apt-get autoclean && \
-    pip install --no-cache-dir -U cmake cmakelang cpplint ninja PyYAML
-FROM base AS homebrew
-RUN useradd -m -s /bin/bash linuxbrew && \
-    echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-USER linuxbrew
-RUN NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
-    brew install cppcheck
-FROM base
-COPY --from=homebrew /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
-COPY --from=homebrew /home/linuxbrew/.linuxbrew/bin/cppcheck /usr/local/bin
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists && \
+    pip install --no-cache-dir --break-system-packages -U cmakelang
 COPY dotfiles/. /
+#  file procps
