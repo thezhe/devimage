@@ -20,6 +20,7 @@
                 "jbenden.c-cpp-flylint",
                 "josetr.cmake-language-support-vscode",
                 "llvm-vs-code-extensions.vscode-clangd",
+                "mine.cpplint",
                 "ms-vscode.cmake-tools",
                 "SonarSource.sonarlint-vscode",
                 "streetsidesoftware.code-spell-checker",
