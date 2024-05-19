@@ -1,9 +1,9 @@
 # Build stage
 FROM ubuntu:22.04 as build
 # Homebrew dependencies
+# hadolint ignore=DL3008
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y && \
-    procps curl file
+    apt-get install --no-install-recommends -y procps curl file
 # Homebrew install
 RUN useradd -m -s /bin/bash linuxbrew && \
     echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -21,7 +21,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists && \
     apt-get autoremove -y --purge && \
     apt-get autoclean && \
-    pip install --no-cache-dir -U cmake cmakelang cpplint ninja PyYAML
+    pip install --no-cache-dir -U cmake cmakelang cpplint curl ninja PyYAML
 # Homebrew
 COPY --from=build /home/linuxbrew/.linuxbrew/bin /usr/local/bin
 # Config
