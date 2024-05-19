@@ -12,9 +12,8 @@ RUN useradd -m -s /bin/bash linuxbrew && \
 USER linuxbrew
 RUN NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
-    brew install cppcheck && \
-    rm -rf /home/linuxbrew/.linuxbrew/bin/brew
+    brew install cppcheck
 FROM base
-COPY --from=homebrew /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
+COPY --from=homebrew /home/linuxbrew/.linuxbrew/Cellar/cppcheck/*/bin/*/ /home/linuxbrew/.linuxbrew
 RUN cp -frsT  /home/linuxbrew/.linuxbrew/bin /usr/local/bin
 COPY dotfiles/. /

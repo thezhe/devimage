@@ -11,4 +11,3 @@ MaxEmptyLinesToKeep: 0
 PointerAlignment: Left
 UseCRLF: false
 # TODO lines before '#'
-# TODO pragma once warning
