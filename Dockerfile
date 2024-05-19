@@ -14,6 +14,6 @@ RUN NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.co
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
     brew install cppcheck
 FROM base
-COPY --from=homebrew /home/linuxbrew/.linuxbrew/Cellar/cppcheck/*/bin /usr/local/bin
-COPY --from=homebrew /home/linuxbrew/.linuxbrew/Cellar/cppcheck/*/share /usr/local/share
+COPY --from=homebrew /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
+COPY --from=homebrew /home/linuxbrew/.linuxbrew/bin/cppcheck /usr/local/bin
 COPY dotfiles/. /

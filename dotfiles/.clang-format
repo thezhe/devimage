@@ -10,4 +10,3 @@ LineEnding: LF
 MaxEmptyLinesToKeep: 0
 PointerAlignment: Left
 UseCRLF: false
-# TODO lines before '#'
